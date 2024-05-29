@@ -1,0 +1,68 @@
+.login-background {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000;
+  background-size: cover;
+  height: 100vh;
+}
+.login-card {
+  background-color: #272727;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 20px;
+  width: 380px;
+}
+.credintial-column {
+  display: flex;
+  flex-direction: column;
+}
+.credintial-color {
+  display: flex;
+  color: #f8fafc;
+  font-size: 10px;
+  font-family: Roboto;
+  margin-bottom: 6px;
+  margin-left: 20px;
+}
+.credintial-input {
+  width: 300px;
+  color: #ffffff;
+  font-family: Roboto;
+  background-color: transparent;
+  margin-bottom: 10px;
+  height: 30px;
+  border-color: #f8fafc;
+  border-radius: 4px;
+  border-width: 1px;
+  font-size: 12px;
+  padding-left: 9px;
+  margin-left: 21px;
+}
+.jobby-logo {
+  height: 50px;
+  width: 120px;
+  margin-bottom: 20px;
+  align-self: center;
+}
+.login-btn {
+  background-color: #4f46e5;
+  font-family: Roboto;
+  width: 300px;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  height: 30px;
+  margin-left: 21px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+.error-msg {
+  color: #ff0b37;
+  font-family: Roboto;
+  font-size: 12px;
+  margin-left: 20px;
+}
