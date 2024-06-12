@@ -1,68 +1,56 @@
-.login-background {
+.login-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #000000;
-  background-size: cover;
-  height: 100vh;
+  padding: 20px;
+  width: 500px;
+  border-radius: 10px;
 }
-.login-card {
-  background-color: #272727;
+.login-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border-radius: 10px;
-  padding: 20px;
-  width: 380px;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url('https://d22ttiuk90zxie.cloudfront.net/1000x720/Ark%20Nemesis%20Gaming%20Center-Gaming%20Center-Interiors%2CFurniture%20Design%2CInterior%20Decor%2CApprovals%20Liasoning%2CConstruction%20Management%2CMEP%20Design-Professional%20Level%20Gaming-3D-59714aw7.jpg');
+  background-size: cover;
 }
-.credintial-column {
-  display: flex;
-  flex-direction: column;
-}
-.credintial-color {
-  display: flex;
-  color: #f8fafc;
-  font-size: 10px;
-  font-family: Roboto;
-  margin-bottom: 6px;
-  margin-left: 20px;
-}
-.credintial-input {
-  width: 300px;
-  color: #ffffff;
-  font-family: Roboto;
-  background-color: transparent;
+
+.labels {
+  color: #000000;
+  font-size: 18px;
+  align-self: flex-start;
   margin-bottom: 10px;
-  height: 30px;
-  border-color: #f8fafc;
-  border-radius: 4px;
-  border-width: 1px;
-  font-size: 12px;
-  padding-left: 9px;
-  margin-left: 21px;
-}
-.jobby-logo {
-  height: 50px;
-  width: 120px;
-  margin-bottom: 20px;
-  align-self: center;
-}
-.login-btn {
-  background-color: #4f46e5;
+  font-weight: 800;
   font-family: Roboto;
-  width: 300px;
+}
+.inputs {
+  height: 40px;
+  width: 450px;
+  margin-bottom: 10px;
+  border-radius: 10px;
   border: none;
-  border-radius: 5px;
+  align-self: flex-start;
+  padding-left: 10px;
+  font-size: 18px;
+}
+.login-head {
   color: #ffffff;
-  height: 30px;
-  margin-left: 21px;
-  margin-top: 15px;
+  font-family: Roboto;
+}
+.game-btn {
+  padding: 10px;
+  font-size: 18px;
+  font-family: Roboto;
+  border-radius: 10px;
+  border: none;
+  background-color: #ffffff;
   cursor: pointer;
 }
-.error-msg {
-  color: #ff0b37;
+
+.error {
+  color: red;
   font-family: Roboto;
-  font-size: 12px;
-  margin-left: 20px;
+  font-size: 18px;
 }

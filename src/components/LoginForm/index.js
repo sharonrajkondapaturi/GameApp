@@ -1,103 +1,71 @@
 import {Component} from 'react'
-import Cookies from 'js-cookie'
+import Header from '../Header'
 import './index.css'
 
 class LoginForm extends Component {
-  state = {username: '', password: '', errorMsg: '', submitError: false}
+  state = {userName: '', password: '', passed: true}
 
-  enterUsername = event => {
-    this.setState({username: event.target.value})
-  }
-
-  renderUserName = () => {
-    const {username} = this.state
-    return (
-      <div className="credintial-column">
-        <label htmlFor="userName" className="credintial-color">
-          USERNAME
-        </label>
-        <input
-          id="userName"
-          value={username}
-          type="text"
-          placeholder="Username"
-          className="credintial-input"
-          onChange={this.enterUsername}
-        />
-      </div>
-    )
+  enterInput = event => {
+    this.setState({userName: event.target.value})
   }
 
   enterPassword = event => {
     this.setState({password: event.target.value})
   }
 
-  renderPassword = () => {
-    const {password} = this.state
-    return (
-      <div className="credintial-column">
-        <label htmlFor="password" className="credintial-color">
-          PASSWORD
-        </label>
-        <input
-          id="password"
-          value={password}
-          type="password"
-          placeholder="Password"
-          className="credintial-input"
-          onChange={this.enterPassword}
-        />
-      </div>
-    )
-  }
-
-  onSubmitSuccess = jwtToken => {
-    const {history} = this.props
-    Cookies.set('jwt_token', jwtToken, {expires: 30})
-    history.replace('/')
-  }
-
-  onSubmitFailure = errorMsg => {
-    this.setState({submitError: true, errorMsg})
-  }
-
-  renderUserInformation = async event => {
+  gameDetails = event => {
     event.preventDefault()
-    const {username, password} = this.state
-    const userDetails = {username, password}
-    const loginApiUrl = 'https://apis.ccbp.in/login'
-    const options = {
-      method: 'POST',
-      body: JSON.stringify(userDetails),
-    }
-    const response = await fetch(loginApiUrl, options)
-    const data = await response.json()
-    if (response.ok === true) {
-      this.onSubmitSuccess(data.jwt_token)
-    } else {
-      this.onSubmitFailure(data.error_msg)
-    }
+    const loggedInDetails = localStorage.getItem('userDetails')
+    const userDetails = JSON.parse(loggedInDetails)
+    const {history} = this.props
+    const {userName, password} = this.state
+    userDetails.filter(eachDetail =>
+      eachDetail.userName === userName && eachDetail.password === password
+        ? history.push('/')
+        : this.setState({passed: false}),
+    )
   }
 
   render() {
-    const {errorMsg, submitError} = this.state
+    const {passed, userName, password} = this.state
     return (
-      <div className="login-background">
-        <form className="login-card" onSubmit={this.renderUserInformation}>
-          <img
-            src="https://assets.ccbp.in/frontend/react-js/logo-img.png"
-            alt="website logo"
-            className="jobby-logo"
-          />
-          {this.renderUserName()}
-          {this.renderPassword()}
-          <button type="submit" className="login-btn">
-            Login
-          </button>
-          {submitError ? <p className="error-msg">{errorMsg}</p> : ''}
-        </form>
-      </div>
+      <>
+        <Header />
+        <div className="login-container">
+          <form className="login-form" onSubmit={this.gameDetails}>
+            <h1 className="login-head">Login</h1>
+            <label htmlFor="userName" className="labels">
+              USERNAME
+            </label>
+            <input
+              id="userName"
+              className="inputs"
+              placeholder="Username"
+              value={userName}
+              onChange={this.enterInput}
+            />
+            <label htmlFor="password" className="labels">
+              PASSWORD
+            </label>
+            <input
+              id="password"
+              className="inputs"
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={this.enterPassword}
+            />
+            <button type="submit" className="game-btn">
+              Submit
+            </button>
+            {passed ? null : (
+              <p className="error"> Username or Password are wrong</p>
+            )}
+          </form>
+        </div>
+      </>
     )
   }
 }
+
 export default LoginForm

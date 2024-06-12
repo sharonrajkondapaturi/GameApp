@@ -1,0 +1,59 @@
+.game {
+  background-color: #000000;
+  border-style: solid;
+  border-color: #58ec0c;
+  list-style: none;
+  padding: 10px;
+  border-radius: 15px;
+  min-width: 330px;
+  max-width: 330px;
+  min-height: 495px;
+  max-height: 495px;
+  margin: 15px;
+  align-self: center;
+  cursor: pointer;
+}
+.game-elements {
+  color: #ffffff;
+  font-family: Roboto;
+  font-size: 18px;
+}
+.game-image {
+  height: 180px;
+  width: 160px;
+  align-self: center;
+}
+
+.game-name {
+  font-family: Roboto;
+  color: #ffffff;
+}
+
+.game-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.star {
+  color: gold;
+}
+.contain-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.game-button {
+  background-color: #246304;
+  border: none;
+  border-radius: 10px;
+  width: 200px;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  font-family: Roboto;
+  padding: 10px;
+  cursor: pointer;
+}

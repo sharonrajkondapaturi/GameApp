@@ -1,42 +1,21 @@
 import {Link, withRouter} from 'react-router-dom'
-import Cookies from 'js-cookie'
+import {FiLogOut} from 'react-icons/fi'
 import './index.css'
 
-const Header = props => {
-  const logOut = () => {
-    const {history} = props
-    Cookies.remove('jwt_token')
-    history.replace('/login')
-  }
-  return (
-    <ul className="header">
-      <li className="lister">
-        <Link to="/">
-          <img
-            src="https://assets.ccbp.in/frontend/react-js/logo-img.png"
-            alt="website logo"
-            className="header-image"
-          />
-        </Link>
-      </li>
-      <div className="lisss">
-        <li className="lister">
-          <Link to="/" className="home">
-            Home
-          </Link>
-          <Link to="/jobs" className="job">
-            Jobs
-          </Link>
-        </li>
-      </div>
-      <Link to="/login">
-        <li className="lister">
-          <button type="button" className="logout-btn" onClick={logOut}>
-            Logout
-          </button>
-        </li>
+const Header = () => (
+  <nav className="navBar">
+    <img
+      src="https://t4.ftcdn.net/jpg/05/72/72/19/360_F_572721906_KxUR0YRhp84BHvH3JsSxGmclhMQAeb50.jpg"
+      alt="game-logo"
+      className="logo"
+    />
+    <div>
+      <Link to="/login" className="link-names">
+        <FiLogOut />
+        <span>Logout</span>
       </Link>
-    </ul>
-  )
-}
+    </div>
+  </nav>
+)
+
 export default withRouter(Header)
